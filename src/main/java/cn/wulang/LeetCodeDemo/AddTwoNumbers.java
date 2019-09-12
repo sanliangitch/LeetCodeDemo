@@ -24,16 +24,19 @@ public class AddTwoNumbers {
         ListNode dummyHead = new ListNode(0);
         ListNode p = l1,q = l2,curr = dummyHead;
         int carry = 0;
-        while (p.next != null || q.next != null){
+        while (p != null || q != null){
             /**
              * 这里就是判 ListNode 为空时，因为差一位所以补一位 0
              */
-            int x = p != null ? p.val : 0;
-            int y = q != null ? q.val : 0;
+            int x = (p != null) ? p.val : 0;
+            int y = (q != null) ? q.val : 0;
             int sum = x + y + carry;
             carry = sum / 10;
             curr.next = new ListNode(sum % 10);
             curr = curr.next;
+            /**
+             * 这里是为了让指针移动到下一位
+             */
             if (p != null){
                 p = p.next;
             }
