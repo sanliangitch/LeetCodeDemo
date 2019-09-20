@@ -113,11 +113,16 @@ public class MyAtoi {
         //到这里得到为正数，或为负数的字符串  stringBuffer
         if (flag){
             //为正整数
-            try {
-                qq = Integer.valueOf(start.toString());
-            }catch (Exception r){
+            if (Long.valueOf(start.toString()) > Integer.MAX_VALUE){
                 qq = Integer.MAX_VALUE;
+            }else {
+                qq = Integer.valueOf(start.toString());
             }
+//            try {
+//                qq = Integer.valueOf(start.toString());
+//            }catch (Exception r){
+//                qq = Integer.MAX_VALUE;
+//            }
         }else {
             //为负数
             try {
@@ -214,8 +219,8 @@ public class MyAtoi {
         System.out.println(s.substring(1,s.length()));
         String sss = "-123";
         System.out.println(Integer.valueOf(sss));
-        String test = "   +10 123";
+        String test = "2147483648";
         System.out.println(test.trim());
-        System.out.println(myAtoi1(test));
+        System.out.println(myAtoi(test));
     }
 }
